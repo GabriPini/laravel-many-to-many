@@ -32,7 +32,7 @@
                         <td scope="row">{{ $post->title }}</td>
                         <td>{{ $post->id }}</td>
                         <td>{{ $post->slug }}</td>
-                        <td><img width="150" src="{{ $post->cover_image }}" alt="Cover Image {{ $post->title }}"></td>
+                        <td><img width="150" src="{{asset('storage/' .  $post->cover_image)}}" alt="Cover Image {{ $post->title }}"></td>
                         <td>
                             <a class="btn btn-primary mb-2" href="{{ route('admin.posts.show', ['post' => $post->slug]) }}"><svg
                                     xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"

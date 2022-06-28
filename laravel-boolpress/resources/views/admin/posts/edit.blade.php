@@ -11,7 +11,7 @@
 <h1 class="text-center">Edit {{$post->title}}</h1>
     @include('partials.error')
 
-        <form class="mt-5 text-center " action="{{ route('admin.posts.update', $post->slug )}}" method="POST">
+        <form class="mt-5 text-center " action="{{ route('admin.posts.update', $post->slug )}}" method="POST" enctype="multipart/form-data">
 
             @method('PATCH')
             @csrf
@@ -26,11 +26,11 @@
 
             <div class="p-2 d-flex align-items-center">
                 <div class="media" style="margin-right:30px ">
-                    <img  class="shadow" width="150" src="{{$post->cover_image}}" alt="">
+                    <img  class="shadow" width="150" src="{{asset('storage/' .  $post->cover_image)}}" alt="">
                 </div>
                 <div class="w-100">
                     <h5>Url immagine:</h5>
-                    <input class="py-2 px-3 w-100 form-control @error('cover_image') is-invalid @enderror" type="text" id="cover_image" name="cover_image" placeholder="inserisci l'url del cover_image della copertina" value="{{old('cover_image' , $post->cover_image )}}" required>
+                    <input class="py-2 px-3 w-100 form-control @error('cover_image') is-invalid @enderror" type="file" id="cover_image" name="cover_image" placeholder="inserisci l'url del cover_image della copertina" value="" required>
                     @error('cover_image')
                     <div class="alert alert-danger">{{ $message }}</div>
                 @enderror

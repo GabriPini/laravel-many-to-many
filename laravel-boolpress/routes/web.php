@@ -1,7 +1,9 @@
 <?php
 
+use App\Mail\PostUpdatedAdminMessage;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Post;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -30,8 +32,13 @@ Route::middleware('auth')->prefix('admin')->namespace('Admin')->name('admin.')->
 });
 
 
+/* Route::get('mailable', function(){
 
+$post = Post::findOrFail(30);
 
+return new PostUpdatedAdminMessage($post);
+});
+ */
 
 //DEVE ESSERE L'ULTIMA ROTTA
 Route::get("{any?}", function(){

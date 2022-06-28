@@ -5,7 +5,7 @@
 
 <h2>Crate new post</h2>
 @include('partials.error')
-<form action="{{route('admin.posts.store')}}" method="post">
+<form action="{{route('admin.posts.store')}}" method="post" enctype="multipart/form-data">
 @csrf
 
 <div class="mb-3">
@@ -21,7 +21,7 @@
 
 <div class="mb-3">
     <label for="cover_image" >cover_image</label>
-    <input type="text" name="cover_image" id="cover_image" class="form-control @error('cover_image') is-invalid @enderror" placeholder="Learn phhp article" aria-describedby="cover_imageHelper">
+    <input type="file" name="cover_image" id="cover_image" class="form-control @error('cover_image') is-invalid @enderror" placeholder="Learn phhp article" aria-describedby="cover_imageHelper">
     <small id="cover_imageHelper" class="text-muted">image</small>
 
     @error('cover_image')
